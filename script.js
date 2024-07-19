@@ -54,3 +54,55 @@ sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{});
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+
+
+
+
+
+
+
+
+
+
+function SendMail() {
+    var fullName = document.getElementById("fullName").value;
+    var email_id = document.getElementById("email_id").value;
+    var message = document.getElementById("message").value;
+
+    if (fullName === "" || email_id === "" || message === "") {
+        showModal("Please fill in all fields before sending the message.");
+        return;
+    }
+
+    var params = {
+        from_name: fullName,
+        email_id: email_id,
+        message: message
+    };
+
+    emailjs.send("service_oen1cbj", "template_dg1etee", params).then(function (res) {
+        showModal("Success! Your message has been sent.");
+    }).catch(function (error) {
+        showModal("Failed to send the message. Please try again later.");
+        console.error("Error:", error);
+    });
+}
+
+function showModal(message) {
+    var modal = document.getElementById("myModal");
+    var modalMessage = document.getElementById("modal-message");
+    var span = document.getElementsByClassName("close")[0];
+
+    modalMessage.innerText = message;
+    modal.style.display = "block";
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}

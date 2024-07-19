@@ -7,6 +7,14 @@
     <!-- =====BOX ICONS===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <title>Portfolio Website - Create israrhussain</title>
+
+    <script src="script.js" type="text/javascript"></script>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+    emailjs.init('dQ5avVPVGSOacvlmV')
+    </script>
 </head>
 <body>
     <!--===== HEADER =====-->
@@ -55,7 +63,7 @@
                     </mask>
                     <g mask="url(#mask0)">
                         <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                        <image class="home__blob-img" x="-100" y="-0" href="./BC20220621_203110-removebg-preview.png" />
+                        <image class="home__blob-img" x="-100" y="-0" href="./BC20220708_105159-removebg-preview.png" />
                     </g>
                 </svg>
             </div>
@@ -176,13 +184,23 @@
 
             <div class="contact__container bd-grid">
                 <form action="" class="contact__form">
-                    <input type="text" placeholder="Name" class="contact__input">
-                    <input type="mail" placeholder="Email" class="contact__input">
-                    <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                    <input type="button" value="Send" class="contact__button button">
+                    <input type="text" id="fullName" placeholder="FullName" class="contact__input" required>
+                    <input type="mail" id="email_id" placeholder="Email" class="contact__input" required>
+                    <textarea name="" id="message" cols="0" rows="10" class="contact__input" required></textarea>
+                    <input type="button" placeholder="Message" onclick="SendMail()" value="Send" class="contact__button button">
                 </form>
             </div>
         </section>
+
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p id="modal-message"></p>
+            </div>
+        </div>
+    
+    
     </main>
 
     <!--===== FOOTER =====-->
@@ -202,6 +220,6 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--===== MAIN JS =====-->
-    <script src="script.js"></script>
+   
 </body>
 </html>
